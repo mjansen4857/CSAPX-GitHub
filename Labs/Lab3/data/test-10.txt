@@ -1,0 +1,10 @@
+Merchant_0 75
+Merchant_1 78
+Merchant_2 88
+Merchant_3 20
+Merchant_4 49
+Merchant_5 57
+Merchant_6 6
+Merchant_7 26
+Merchant_8 90
+Merchant_9 90
