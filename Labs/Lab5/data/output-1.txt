@@ -1,0 +1,56 @@
+$ java SIS data/course1.txt data/professor-1.txt data/student-1.txt data/input-1.txt
+> help
+course {id}: list a course
+courses: list all courses (by course id)
+enroll {username} {id}: enroll a student in a course
+help: this message
+professor {username}: list courses taught by professor (by course level then by course name)
+student {username}: list courses taken by student (by course name)
+unenroll {username} {id}: unenroll a student from a course
+users: list all users (alphabetically by username) 
+quit: quit SIS
+> courses
+Course{id=1, name='Computer_Science_1', level=100, professor=mjk, students=[aa0, bb3, cc2]}
+Course{id=2, name='Computer_Science_2', level=100, professor=hae, students=[aa0, cc2]}
+Course{id=3, name='Mechanics_of_Programming', level=200, professor=hpb, students=[aa0, bb3, cc2]}
+Course{id=4, name='Principles_of_Data_Management', level=300, professor=mjk, students=[bb1, cc2]}
+Course{id=5, name='Professional_Communications', level=400, professor=hpb, students=[bb3]}
+Course{id=6, name='Computer_Graphics_1', level=500, professor=hpb, students=[cc2]}
+Course{id=10, name='Aspect_Oriented_Programming', level=500, professor=hpb, students=[]}
+> users
+User{username='aa0', type=STUDENT, courses=[Computer_Science_1, Computer_Science_2, Mechanics_of_Programming]}
+User{username='bb1', type=STUDENT, courses=[Principles_of_Data_Management]}
+User{username='bb3', type=STUDENT, courses=[Computer_Science_1, Mechanics_of_Programming, Professional_Communications]}
+User{username='cc2', type=STUDENT, courses=[Computer_Graphics_1, Computer_Science_1, Computer_Science_2, Mechanics_of_Programming, Principles_of_Data_Management]}
+User{username='hae', type=PROFESSOR, courses=[Computer_Science_2]}
+User{username='hpb', type=PROFESSOR, courses=[Mechanics_of_Programming, Professional_Communications, Aspect_Oriented_Programming, Computer_Graphics_1]}
+User{username='mjk', type=PROFESSOR, courses=[Computer_Science_1, Principles_of_Data_Management]}
+> professor hpb
+Course{id=3, name='Mechanics_of_Programming', level=200, professor=hpb, students=[aa0, bb3, cc2]}
+Course{id=5, name='Professional_Communications', level=400, professor=hpb, students=[bb3]}
+Course{id=10, name='Aspect_Oriented_Programming', level=500, professor=hpb, students=[]}
+Course{id=6, name='Computer_Graphics_1', level=500, professor=hpb, students=[cc2]}
+> student cc2
+Course{id=6, name='Computer_Graphics_1', level=500, professor=hpb, students=[cc2]}
+Course{id=1, name='Computer_Science_1', level=100, professor=mjk, students=[aa0, bb3, cc2]}
+Course{id=2, name='Computer_Science_2', level=100, professor=hae, students=[aa0, cc2]}
+Course{id=3, name='Mechanics_of_Programming', level=200, professor=hpb, students=[aa0, bb3, cc2]}
+Course{id=4, name='Principles_of_Data_Management', level=300, professor=mjk, students=[bb1, cc2]}
+> enroll cc2 5
+> student cc2
+Course{id=6, name='Computer_Graphics_1', level=500, professor=hpb, students=[cc2]}
+Course{id=1, name='Computer_Science_1', level=100, professor=mjk, students=[aa0, bb3, cc2]}
+Course{id=2, name='Computer_Science_2', level=100, professor=hae, students=[aa0, cc2]}
+Course{id=3, name='Mechanics_of_Programming', level=200, professor=hpb, students=[aa0, bb3, cc2]}
+Course{id=4, name='Principles_of_Data_Management', level=300, professor=mjk, students=[bb1, cc2]}
+Course{id=5, name='Professional_Communications', level=400, professor=hpb, students=[bb3, cc2]}
+> unenroll cc2 4
+> student cc2
+Course{id=6, name='Computer_Graphics_1', level=500, professor=hpb, students=[cc2]}
+Course{id=1, name='Computer_Science_1', level=100, professor=mjk, students=[aa0, bb3, cc2]}
+Course{id=2, name='Computer_Science_2', level=100, professor=hae, students=[aa0, cc2]}
+Course{id=3, name='Mechanics_of_Programming', level=200, professor=hpb, students=[aa0, bb3, cc2]}
+Course{id=5, name='Professional_Communications', level=400, professor=hpb, students=[bb3, cc2]}
+> course 4
+Course{id=4, name='Principles_of_Data_Management', level=300, professor=mjk, students=[bb1]}
+> quit
